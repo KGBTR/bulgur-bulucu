@@ -22,9 +22,9 @@ while True:
 	    burdurlu = "burdurland" in str(data)
 	    if burdurlu == True:
 	    	submission.reply('''
-	    		# Burdurlu Normie Tespit Edildi !
-	    		***
-	    		## Bu Yorum Burdurlu Bulucu Bot Tarafından Yapılmıştır
+# Burdurlu Normie Tespit Edildi !
+***
+## Bu Yorum Burdurlu Bulucu Bot Tarafından Yapılmıştır
 	    		''')
 	    	print("Görev tamamlandı bulgurlu bildirildi")
 	    else:
