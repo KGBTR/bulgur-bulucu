@@ -13,7 +13,7 @@ reddit = praw.Reddit(
 
 
 while True:
-	for submission in reddit.subreddit("KGBTR").new(limit=1500):
+	for submission in reddit.subreddit("KGBTR").new(limit=100):
 	    author = submission.author
 	    print(author)
 	    url = "https://www.reddit.com/user/{}/top_karma_subreddits.json"
@@ -24,9 +24,9 @@ while True:
 	    	submission.reply('''
 # Burdurlu Normie Tespit Edildi !
 ***
-## Bu Yorum Burdurlu Bulucu Bot Tarafından Yapılmıştır
+Bu Yorum Burdurlu Bulucu Bot Tarafından Yapılmıştır
 	    		''')
 	    	print("Görev tamamlandı bulgurlu bildirildi")
 	    else:
 	    	print(author, "bulgursuz")
-	    time.sleep(40) 
+	    time.sleep(60) 
