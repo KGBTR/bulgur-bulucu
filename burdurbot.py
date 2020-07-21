@@ -6,7 +6,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from os import environ
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name(environ['GOOGLE_APPLICATION_CREDENTIALS'], scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('key.json', scope)
 client = gspread.authorize(creds)
 worksheet = client.open('BurdurBot').sheet1
 reddit = praw.Reddit(
