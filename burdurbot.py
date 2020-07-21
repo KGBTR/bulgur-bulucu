@@ -71,7 +71,7 @@ while True:
 
 Bip Bop. Ben Burdurlu Bulucu Bot. 
 [Beni Yapan Kişi](https://www.reddit.com/user/ruzgarerik) [Sorun Bildir](https://www.reddit.com/message/compose/?to=PeriodicDioxide)
-
+Burdurlu değil dönütü geçici olarak kapatıldı.
 ***
 '''.format(linkler,yorumlar,sayac,sayac2))
 				print("Görev tamamlandı bulgurlu bildirildi")
@@ -79,7 +79,5 @@ Bip Bop. Ben Burdurlu Bulucu Bot.
 
 		else:
 			print(author, "bulgursuz")
-			submission.reply("Bulgurlu değilsin. İyi günler. ")
-		time.sleep(20)
-	print("Soğuma zamanı")
-	time.sleep(3600)
+		time.sleep(2)
+	print("ilk 50 bitti")
