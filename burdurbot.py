@@ -17,7 +17,7 @@ reddit = praw.Reddit(
     user_agent='u/ruzgarerik Bot')
 
 while True:
-	for submission in reddit.subreddit("KGBTR").new(limit=50):
+	for submission in reddit.subreddit("KGBTR").new(limit=10):
 		sayac = 0
 		sayac2=0 
 		linkler = []
@@ -79,5 +79,5 @@ Burdurlu değil dönütü geçici olarak kapatıldı.
 
 		else:
 			print(author, "bulgursuz")
-		time.sleep(2)
-	print("ilk 50 bitti")
+		time.sleep(1)
+	print("ilk 10 bitti")
