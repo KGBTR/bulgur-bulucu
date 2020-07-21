@@ -79,6 +79,7 @@ Bip Bop. Ben Burdurlu Bulucu Bot.
 
 		else:
 			print(author, "bulgursuz")
+			submission.reply("Bulgurlu değilsin. Testi geçtin.")
 		time.sleep(2)
 	print("Soğuma zamanı")
 	time.sleep(15)
