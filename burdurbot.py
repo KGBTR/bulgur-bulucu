@@ -6,7 +6,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from os import environ
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-anahtar = json.loads(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS'))
+anahtar = json.loads(environ['GOOGLE_APPLICATION_CREDENTIALS'])
 with open('google-credentials.json', 'w') as fp:
     json.dump(anahtar, fp)
 creds = ServiceAccountCredentials.from_json_keyfile_name('google-credentials.json', scope)
