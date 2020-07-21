@@ -65,8 +65,8 @@ while True:
 # Bu kişinin burdurland subredditindeki yorumları:
 {}
 ***
-## {} paylaşım yapmış
-## {} yorum yapmış
+## {} paylaşım yapmış.
+## {} yorum yapmış.
 ***
 
 Bip Bop. Ben Burdurlu Bulucu Bot. 
