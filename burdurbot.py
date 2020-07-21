@@ -51,4 +51,4 @@ while True:
 			print("Görev tamamlandı bulgurlu bildirildi")
 		else:
 			print(author, "bulgursuz")
-		time.sleep(5) 
+		time.sleep(30) 
