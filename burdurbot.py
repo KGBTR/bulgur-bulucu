@@ -6,7 +6,10 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from os import environ
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name('GOOGLE_APPLICATION_CREDENTIALS', scope)
+anahtar = json.loads(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS'))
+with open('google-credentials.json', 'w') as fp:
+    json.dump(anahtar, fp)
+creds = ServiceAccountCredentials.from_json_keyfile_name('google-credentials.json', scope)
 client = gspread.authorize(creds)
 worksheet = client.open('BurdurBot').sheet1
 reddit = praw.Reddit(
@@ -65,8 +68,8 @@ while True:
 # Bu kişinin burdurland subredditindeki yorumları:
 {}
 ***
-## {} paylaşım yapmış.
-## {} yorum yapmış.
+## {} paylaşım yapmış
+## {} yorum yapmış
 ***
 
 Bip Bop. Ben Burdurlu Bulucu Bot. 
