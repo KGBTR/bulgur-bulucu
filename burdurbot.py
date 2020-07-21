@@ -82,4 +82,4 @@ Bip Bop. Ben Burdurlu Bulucu Bot.
 			submission.reply("Bulgurlu değilsin. İyi günler. ")
 		time.sleep(2)
 	print("Soğuma zamanı")
-	time.sleep(120
+	time.sleep(120)
