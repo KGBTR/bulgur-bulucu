@@ -76,7 +76,6 @@ Bip Bop. Ben Burdurlu Bulucu Bot.
 '''.format(linkler,yorumlar,sayac,sayac2))
 				print("Görev tamamlandı bulgurlu bildirildi")
 				worksheet.append_row([sid])
-
 		else:
 			sid = submission.id
 			try:
@@ -85,13 +84,9 @@ Bip Bop. Ben Burdurlu Bulucu Bot.
 					reply = 1
 				else:
 					reply = 0
-
-			print(author, "bulgursuz")
-
 			if reply == 0:
 				submission.reply("Bulgurlu değilsin. İyi günler. ")
 				worksheet.append_row([sid])
-
 		time.sleep(2)
 	print("Soğuma zamanı")
 	time.sleep(15)
