@@ -17,7 +17,7 @@ reddit = praw.Reddit(
     user_agent='u/ruzgarerik Bot')
 
 while True:
-	for submission in reddit.subreddit("KGBTR").new(limit=40):
+	for submission in reddit.subreddit("KGBTR").new(limit=50):
 		sayac = 0
 		sayac2=0 
 		linkler = []
@@ -80,6 +80,6 @@ Bip Bop. Ben Burdurlu Bulucu Bot.
 		else:
 			print(author, "bulgursuz")
 			submission.reply("Bulgurlu değilsin. İyi günler. ")
-		time.sleep(2)
+		time.sleep(20)
 	print("Soğuma zamanı")
-	time.sleep(600)
+	time.sleep(3600)
