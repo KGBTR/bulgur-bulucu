@@ -48,7 +48,7 @@ while True:
 			for element in commentdata['data']:
 				sayac2=sayac2+1
 				yorumlar.append(element['body'])
-				
+
 			ensonyorum = commentdata['data'][0][created_utc]
 			ensonyorumtarih = datetime.datetime.fromtimestamp(int(ensonyorum))
 			sid = submission.id
@@ -79,7 +79,7 @@ while True:
 ***
 '''.format(sayac,ensonposttarih,sayac2,ensonyorumtarih))
 				print("Görev tamamlandı bulgurlu bildirildi")
-				worksheet.append_row([sid]
+				worksheet.append_row([sid,author,ensonposttarih,ensonyorumtarih])
 
 		else:
 			print(author, "bulgursuz")
