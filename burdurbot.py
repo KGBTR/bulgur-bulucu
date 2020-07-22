@@ -24,6 +24,8 @@ while True:
 		linkler = []
 		reply = 0
 		yorumlar = []
+		ensonposttarih=""
+		ensonyorumtarih=""
 		author = str(submission.author)
 		print(author)
 		url = "https://www.reddit.com/user/{}/top_karma_subreddits.json"
@@ -45,6 +47,7 @@ while True:
 				ensonposttarih = datetime.datetime.fromtimestamp(int(ensonpost))
 			except:
 				print(author,"postu yok")
+				ensonposttarih = ""
 			c = requests.get('https://api.pushshift.io/reddit/comment/search/?author={}&subreddit=burdurland'.format(author))
 			commentdata = c.json()
 			for element in commentdata['data']:
@@ -57,6 +60,8 @@ while True:
 
 			except:
 				print(author," yorumu yok")
+				ensonyorumtarih = ""
+				
 			sid = submission.id
 			try:
 				cell = worksheet.find(sid)
