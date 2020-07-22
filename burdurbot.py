@@ -66,7 +66,7 @@ while True:
 ***
 ^{} ^Paylaşım ^Yapmış
 
-^En ^Son ^Paylaşım ^tarihi {} 
+^En ^Son ^Paylaşım ^tarihi {} GMT+0
 
 ^{} ^Yorum ^Yapmış
 
