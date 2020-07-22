@@ -10,7 +10,6 @@ scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/aut
 creds = ServiceAccountCredentials.from_json_keyfile_name('key.json', scope)
 client = gspread.authorize(creds)
 worksheet = client.open('BurdurBot').sheet1
-kullanicilar = client.open('BurdurBot').sheet2
 reddit = praw.Reddit(
     client_id=environ['client_id'],
     client_secret=environ['client_secret'],
@@ -79,8 +78,8 @@ while True:
 ***
 '''.format(sayac,ensonposttarih,sayac2,ensonyorumtarih))
 				print("Görev tamamlandı bulgurlu bildirildi")
-				worksheet.append_row([sid])
-				kullanicilar.append_row([author,ensonposttarih,ensonyorumtarih])
+				worksheet.append_row([sid,author,ensonposttarih,ensonyorumtarih])
+				
 
 		else:
 			print(author, "bulgursuz")
