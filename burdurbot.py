@@ -41,14 +41,14 @@ while True:
 			for element in submissiondata['data']:
 				linkler.append(element['full_link'])
 				sayac=sayac+1
-			ensonpost = submissiondata[0][created_utc]
+			ensonpost = submissiondata['0'][created_utc]
 			ensonposttarih = datetime.datetime.fromtimestamp(int(ensonpost))
 			c = requests.get('https://api.pushshift.io/reddit/comment/search/?author={}&subreddit=burdurland'.format(author))
 			commentdata = c.json()
 			for element in commentdata['data']:
 				sayac2=sayac2+1
 				yorumlar.append(element['body'])
-			ensonyorum = commentdata[0][created_utc]
+			ensonyorum = commentdata['0'][created_utc]
 			ensonyorumtarih = datetime.datetime.fromtimestamp(int(ensonyorum))
 			sid = submission.id
 			try:
