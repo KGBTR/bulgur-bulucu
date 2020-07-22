@@ -85,7 +85,7 @@ while True:
 ***
 '''.format(sayac,ensonposttarih,sayac2,ensonyorumtarih))
 				print("Görev tamamlandı bulgurlu bildirildi")
-				worksheet.append_row([sid])
+				worksheet.append_row([sid,author])
 
 		else:
 			print(author, "bulgursuz")
