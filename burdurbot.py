@@ -24,7 +24,7 @@ while True:
 		linkler = []
 		reply = 0
 		yorumlar = []
-		author = submission.author
+		author = str(submission.author)
 		print(author)
 		url = "https://www.reddit.com/user/{}/top_karma_subreddits.json"
 		r = requests.get(url.format(author), headers = {'User-agent': 'u/ruzgarerik bot'})
@@ -66,11 +66,11 @@ while True:
 ***
 ^{} ^Paylaşım ^Yapmış
 
-^En ^Son ^Paylaşım ^tarihi {}
+^En ^Son ^Paylaşım ^tarihi {} 
 
 ^{} ^Yorum ^Yapmış
 
-^En ^Son ^Yorum ^Tarihi {}
+^En ^Son ^Yorum ^Tarihi {} GMT+0
 ***
 ^Bip ^Bop. ^Ben ^Burdurlu ^Bulucu ^Bot. 
 [Beni Yapan Kisi](https://www.reddit.com/user/ruzgarerik) [Sorun Bildir](https://www.reddit.com/message/compose/?to=PeriodicDioxide)
