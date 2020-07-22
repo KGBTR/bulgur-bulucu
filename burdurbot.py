@@ -3,12 +3,14 @@ import json
 import praw
 import time
 import gspread
+import datetime
 from oauth2client.service_account import ServiceAccountCredentials
 from os import environ
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 creds = ServiceAccountCredentials.from_json_keyfile_name('key.json', scope)
 client = gspread.authorize(creds)
 worksheet = client.open('BurdurBot').sheet1
+kullanicilar = client.open('BurdurBot').sheet2
 reddit = praw.Reddit(
     client_id=environ['client_id'],
     client_secret=environ['client_secret'],
@@ -40,11 +42,15 @@ while True:
 			for element in submissiondata['data']:
 				linkler.append(element['full_link'])
 				sayac=sayac+1
+			ensonpost = submissiondata[0][created_utc]
+			ensonposttarih = datetime.datetime.fromtimestamp(int(ensonpost))
 			c = requests.get('https://api.pushshift.io/reddit/comment/search/?author={}&subreddit=burdurland'.format(author))
 			commentdata = c.json()
 			for element in commentdata['data']:
 				sayac2=sayac2+1
 				yorumlar.append(element['body'])
+			ensonyorum = commentdata[0][created_utc]
+			ensonyorumtarih = datetime.datetime.fromtimestamp(int(ensonyorum))
 			sid = submission.id
 			try:
 				cell = worksheet.find(sid)
@@ -59,23 +65,22 @@ while True:
 				submission.reply('''
 # Burdurlu Normie Tespit Edildi !
 ***
-# Bu Kişinin burdurland subredditindeki paylaşımları:
-{}
 ***
-# Bu kişinin burdurland subredditindeki yorumları:
-{}
-***
-## {} paylaşım yapmış
-## {} yorum yapmış
-***
+^{} ^Paylaşım ^Yapmış
 
-Bip Bop. Ben Burdurlu Bulucu Bot. 
-[Beni Yapan Kişi](https://www.reddit.com/user/ruzgarerik) [Sorun Bildir](https://www.reddit.com/message/compose/?to=PeriodicDioxide)
-Burdurlu değil dönütü geçici olarak kapatıldı.
+^En ^Son ^Paylaşım ^tarihi {}
+
+^{} ^Yorum ^Yapmış
+
+^En ^Son ^Yorum ^Tarihi {}
 ***
-'''.format(linkler,yorumlar,sayac,sayac2))
+^Bip ^Bop. ^Ben ^Burdurlu ^Bulucu ^Bot. 
+[Beni Yapan Kisi](https://www.reddit.com/user/ruzgarerik) [Sorun Bildir](https://www.reddit.com/message/compose/?to=PeriodicDioxide)
+***
+'''.format(sayac,ensonposttarih,sayac2,ensonyorumtarih))
 				print("Görev tamamlandı bulgurlu bildirildi")
 				worksheet.append_row([sid])
+				kullanicilar.append_row([author,ensonposttarih,ensonyorumtarih])
 
 		else:
 			print(author, "bulgursuz")
