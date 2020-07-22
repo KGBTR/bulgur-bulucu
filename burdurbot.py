@@ -43,6 +43,8 @@ while True:
 			try:
 				ensonpost = submissiondata['data'][0]['created_utc']
 				ensonposttarih = datetime.datetime.fromtimestamp(int(ensonpost))
+			except:
+				print(author,"postu yok")
 			c = requests.get('https://api.pushshift.io/reddit/comment/search/?author={}&subreddit=burdurland'.format(author))
 			commentdata = c.json()
 			for element in commentdata['data']:
@@ -52,6 +54,9 @@ while True:
 			try:
 				ensonyorum = commentdata['data'][0]['created_utc']
 				ensonyorumtarih = datetime.datetime.fromtimestamp(int(ensonyorum))
+
+			except:
+				print(author," yorumu yok")
 			sid = submission.id
 			try:
 				cell = worksheet.find(sid)
