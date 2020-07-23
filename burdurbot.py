@@ -11,10 +11,10 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('key.json', scope)
 client = gspread.authorize(creds)
 worksheet = client.open('BurdurBot').sheet1
 reddit = praw.Reddit(
-    client_id=environ['client_id'],
-    client_secret=environ['client_secret'],
+    client_id='BXftGrRszEp0GQ',
+    client_secret='2_qNIZ1x5Z1T4PdP4aqSXGBO67w',
     username='PeriodicDioxide',
-    password=environ['password'],
+    password='19931993',
     user_agent='u/ruzgarerik Bot')
 keyphrase = 'u/PeriodicDioxide'
 print("---BOT BAŞLIYOR---")
@@ -27,7 +27,7 @@ while True:
 				sayac2=0 
 				linkler = []
 				yorumlar = []
-				reply = 1
+				reply = 0
 				ensonposttarih=""
 				ensonyorumtarih=""
 				author = str(submission.author)
@@ -43,7 +43,6 @@ while True:
 					sayac2=0
 					linkler = []
 					yorumlar = []
-					reply = 1
 					for element in submissiondata['data']:
 						sayac=sayac+1
 					try:
