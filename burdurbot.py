@@ -120,5 +120,5 @@ while True:
 						print("bildirildi")
 						worksheet.append_row([sid,'Yeni bot'])
 
-				
+			time.sleep(2)	
 			print("Kontrol")
