@@ -70,7 +70,7 @@ while True:
 					
 
 					try:
-						cell = worksheet.find(comment.id)
+						cell = worksheet.find(sid)
 						if cell:
 							reply = 1
 					except:
@@ -96,12 +96,13 @@ while True:
 ***
 ^Bip ^Bop. ^Ben ^Burdurlu ^Bulucu ^Bot. 
 ^Son ^Güncelleme ^23 ^Temmuz ^2020
+^Bir ^posta ^sadece ^bir ^kere ^geliyorum
 
 [Beni Yapan Kisi](https://www.reddit.com/user/ruzgarerik) [Sorun Bildir](https://www.reddit.com/message/compose/?to=PeriodicDioxide)
 ***
 			'''.format(author,sayac,ensonposttarih,sayac2,ensonyorumtarih))
 						print("Görev tamamlandı bulgurlu bildirildi")
-						worksheet.append_row([comment.id,author,'Yeni bot'])
+						worksheet.append_row([sid,author,'Yeni bot'])
 					else:
 						print("Daha önceden cevap verildi")
 
@@ -117,7 +118,7 @@ while True:
 	'''
 		.format(author))
 						print("bildirildi")
-						worksheet.append_row([comment.id,author,'Yeni bot'])
+						worksheet.append_row([sid,'Yeni bot'])
 
 				
 			print("Kontrol")
