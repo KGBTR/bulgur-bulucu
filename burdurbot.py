@@ -67,10 +67,8 @@ while True:
 						ensonyorumtarih = ""
 						
 					sid = submission.id
-					
-
 					try:
-						cell = worksheet.find(sid)
+						cell = worksheet.find(submission.id)
 						if cell:
 							reply = 1
 					except:
@@ -102,7 +100,7 @@ while True:
 ***
 			'''.format(author,sayac,ensonposttarih,sayac2,ensonyorumtarih))
 						print("Görev tamamlandı bulgurlu bildirildi")
-						worksheet.append_row([sid,author,'Yeni bot'])
+						worksheet.append_row([submission.id,author,'Yeni bot'])
 					else:
 						print("Daha önceden cevap verildi")
 
@@ -118,7 +116,7 @@ while True:
 	'''
 		.format(author))
 						print("bildirildi")
-						worksheet.append_row([sid,'Yeni bot'])
+						worksheet.append_row([submission.id,author,'Yeni bot'])
 
 			time.sleep(2)	
 			print("Kontrol")
