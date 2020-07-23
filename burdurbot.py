@@ -19,7 +19,7 @@ reddit = praw.Reddit(
 keyphrase = 'u/PeriodicDioxide'
 print("---BOT BAŞLIYOR---")
 while True:
-	for submission in reddit.subreddit("KGBTR").new(limit=30):
+	for submission in reddit.subreddit("KGBTR").new(limit=10):
 		for comment in submission.comments:
 			if keyphrase in comment.body:
 				print("istek var")
@@ -119,5 +119,5 @@ while True:
 						print("bildirildi")
 						worksheet.append_row([cid,author,'Yeni bot'])
 
-				time.sleep(1)
+				
 			print("Kontrol")
