@@ -26,7 +26,6 @@ while True:
 				sayac = 0
 				sayac2=0 
 				linkler = []
-				reply = 0
 				yorumlar = []
 				ensonposttarih=""
 				ensonyorumtarih=""
@@ -41,7 +40,6 @@ while True:
 					submissiondata = s.json()
 					sayac=0
 					sayac2=0
-					reply = 0
 					linkler = []
 					yorumlar = []
 					for element in submissiondata['data']:
@@ -71,6 +69,8 @@ while True:
 						cell = worksheet.find(submission.id)
 						if cell:
 							reply = 1
+						else:
+							reply = 2
 					except:
 						print("id veritabanında yok")
 						reply = 0
@@ -101,6 +101,7 @@ while True:
 			'''.format(author,sayac,ensonposttarih,sayac2,ensonyorumtarih))
 						print("Görev tamamlandı bulgurlu bildirildi")
 						worksheet.append_row([submission.id,author,'Yeni bot'])
+						reply = 1
 					else:
 						print("Daha önceden cevap verildi")
 
@@ -117,6 +118,7 @@ while True:
 		.format(author))
 						print("bildirildi")
 						worksheet.append_row([submission.id,author,'Yeni bot'])
+						reply = 1
 
 			time.sleep(2)	
 			print("Kontrol")
