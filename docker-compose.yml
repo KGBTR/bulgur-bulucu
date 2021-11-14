@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+  dev:
+    image: bulgur-bulucu:dev
+    container_name: bulgur-bulucu-dev
+    build:
+      context: .
+    networks: 
+      - net
+    volumes: 
+      - .:/usr/src/app
+
+  # run:
+  #   image: alpine
+  #   container_name: bulgur-bulucu-run
+  #   networks:
+  #     - net
+  #   volumes: 
+  #     - .:/app
+  #   working_dir: /app
+  #   entrypoint: 
+  #     - PDFDataParser
+
+  # build:
+  #   image: golang:alpine
+  #   container_name: bulgur-bulucu-build
+  #   networks: 
+  #     - net
+  #   working_dir: /app 
+  #   volumes:
+  #     - .:/app
+  #   command: go build .
+
+  # prod:
+  #   image: alpine
+  #   container_name: bulgur-bulucu-prod
+  #   working_dir: /app
+  #   volumes:
+  #     - ./PDFDataParser:/app
+  #   networks: 
+  #     - net
+  #   depends_on:
+  #     - build
+  #   entrypoint: /app/bulgur-bulucu
+
+networks:
+  net:
+    driver: bridge
